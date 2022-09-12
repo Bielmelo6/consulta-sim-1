@@ -9,7 +9,7 @@ class Medico < ApplicationRecord
   validate :cpf_valido
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :especialidade, presence: true, length: {in: 4..20}
-  validates :crm, presence: true, length: {in: 4..10}, numericality: {only_integer: true}
+  validates :crm, presence: true, length: {in: 4..10}
 
   def cpf_valido
     if cpf.present? && !CPF.valid?(cpf)
